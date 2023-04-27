@@ -5,7 +5,36 @@
 {% block body %}
 <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-
+    <h2>Gestion de peliculas</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/RegistrarPelicula/" method="POST">{% csrf_token %}
+                    <div class="form-group py-2">
+                        <input type="text" id="txtId" name="txtId" class="form-control" 
+                        placeholder="Id" minlength="4" maxlength="4" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" 
+                        placeholder="nombre pelicula" maxlength="60" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="number" id="txtDuracion" name="txtDuracion" class="form-control" 
+                        placeholder="duracion pelicula" minlength="3" maxlength="3" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtProductora" name="txtProductora" class="form-control" 
+                        placeholder="productora pelicula" maxlength="100" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <h5>Fecha de estreno</h5>
+                        <input type="date" id="txtDate" name="txtDate" class="form-control">
+                    </div>
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar peliculas</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
         <h1>Listado de peliculas</h1>
@@ -18,6 +47,7 @@
                         <th>duracion</th>
                         <th>productora</th>
                         <th>fecha</th>
+                        <th colspan="">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +58,8 @@
                         <td>{{p.duracion}}</td>
                         <td>{{p.productora}}</td>
                         <td>{{p.fecha}}</td>
+                        <td><a href="edicionPelicula/{{p.id}}" class="btn btn-info">Editar pelicula</a></td>
+                        <td><a href="eliminarPelicula/{{p.id}}" class="btn btn-danger">Eliminar pelicula</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
