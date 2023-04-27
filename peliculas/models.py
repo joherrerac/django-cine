@@ -5,7 +5,7 @@ from django.db import models
 class Pelicula(models.Model):
     id=models.CharField(primary_key=True, max_length=4)
     nombre=models.CharField(max_length=60)
-    duracion=models.DurationField(max_length=3)
+    duracion=models.CharField(max_length=3)
     productora=models.CharField(max_length=100)
     fecha_estreno=models.DateField()
     

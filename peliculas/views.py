@@ -12,7 +12,7 @@ def registrarPelicula(request):
     nombre=request.POST['txtNombre']
     duracion=request.POST['txtDuracion']
     productora=request.POST['txtProductora']
-    fecha_estreno=request.POST['txtDate']
+    fecha_estreno=request.POST['txtFecha']
     
     pelicula=Pelicula.objects.create(
         id=id, nombre=nombre, duracion=duracion, productora=productora, fecha_estreno=fecha_estreno)
