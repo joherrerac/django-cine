@@ -5,6 +5,14 @@
 {% block body %}
 <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        {% if messages %}
+        {% for messages in messages %}
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
     <h2>Gestion de peliculas</h2>
         <div class="card">
             <div class="card-body">
@@ -61,7 +69,7 @@
                         <td>{{p.productora}}</td>
                         <td>{{p.fecha}}</td>
                         <td><a href="edicionPelicula/{{p.id}}" class="btn btn-info">Editar pelicula</a></td>
-                        <td><a href="eliminarPelicula/{{p.id}}" class="btn btn-danger">Eliminar pelicula</a></td>
+                        <td><a href="eliminarPelicula/{{p.id}}" class="btn btn-danger btnEliminacion">Eliminar pelicula</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
