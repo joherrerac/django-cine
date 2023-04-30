@@ -1,0 +1,40 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestion de peliculas {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edicion de peliculas</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/editarPelicula/" method="POST">{% csrf_token %}
+                    <div class="form-group py-2">
+                        <input type="text" id="txtId" name="txtId" value="{{pelicula.id}}" class="form-control" 
+                        placeholder="Id" minlength="4" maxlength="4" readonly required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtNombre" name="txtNombre" value="{{pelicula.nombre}}" class="form-control" 
+                        placeholder="nombre pelicula" maxlength="60" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="number" id="txtDuracion" name="txtDuracion" value="{{pelicula.duracion}}" class="form-control" 
+                        placeholder="duracion pelicula" minlength="3" maxlength="3" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtProductora" name="txtProductora" value="{{pelicula.productora}}" class="form-control" 
+                        placeholder="productora pelicula" maxlength="100" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <h5>Fecha de estreno</h5>
+                        <input type="date" id="txtFecha" name="txtFecha" value="{{pelicula.fecha}}" class="form-control">
+                    </div>
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
